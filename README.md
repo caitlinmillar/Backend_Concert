@@ -11,3 +11,7 @@ We are going to build an API for booking concerts. It will implement Java, Sprin
 **How to use the project**
 
 **Credits:**
+Berna Yasar
+Loshanth Selvanayagam
+Caitlin Millar
+Abdullah Taibi
