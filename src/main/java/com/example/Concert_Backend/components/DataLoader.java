@@ -6,10 +6,11 @@ import com.example.Concert_Backend.repositories.AttendeeRepository;
 import com.example.Concert_Backend.repositories.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
+import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DataLoader {
+public class DataLoader implements ApplicationRunner {
     @Autowired
     ConcertRepository concertRepository;
     @Autowired
