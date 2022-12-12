@@ -2,6 +2,7 @@ package com.example.Concert_Backend.controllers;
 
 import com.example.Concert_Backend.models.Concert;
 import com.example.Concert_Backend.repositories.ConcertRepository;
+import com.example.Concert_Backend.services.ConcertService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,24 +15,25 @@ import java.util.Optional;
 @RequestMapping("/concerts")
 public class ConcertController {
     @Autowired
-    ConcertRepository concertRepository;
+    ConcertService concertService;
 
-    //Getting all concerts
+//    Getting all concerts
     @GetMapping
     public ResponseEntity<List<Concert>> getAllConcerts (){
-        return new ResponseEntity<>(concertRepository.findAll(), HttpStatus.OK);
+        List<Concert>concerts = concertService.getAllConcerts();
+        return new ResponseEntity<>(concerts, HttpStatus.OK);
     }
-
     //Getting a concert by ID
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Optional<Concert>> getConcertById (@PathVariable Long id){
-        return new ResponseEntity<>(concertRepository.findById(id), HttpStatus.OK);
+    public ResponseEntity<Concert> getConcertById (@PathVariable Long id){
+        Concert concert = concertService.getConcertById(id);
+        return new ResponseEntity<>(concert, HttpStatus.OK);
     }
 
     //Posting/adding concert
     @PostMapping
     public ResponseEntity<Concert> postConcert (@RequestBody Concert concert){
-        concertRepository.save(concert);
+        Concert concert =
         return new ResponseEntity<>(concert, HttpStatus.CREATED);
     }
 
