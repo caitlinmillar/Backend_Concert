@@ -12,10 +12,11 @@ import java.util.List;
 public class Concert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column (name = "concert_id")
     private Long id;
 
     @Column(name = "artist")
-    private List<Artist> artist;
+    private ArrayList<Concert> artists;
 
     @Column(name = "capacity")
     private Long capacity;
@@ -33,15 +34,16 @@ public class Concert {
             inverseJoinColumns = @JoinColumn(name = "attendee_id")
     )
 
+
     @JsonIgnoreProperties({"concerts"})
     private List<Attendee> attendees;
 
-    public Concert(Long capacity, String date, String time, Artist artist){
+    public Concert(Long capacity, String date, String time){
         this.capacity = capacity;
         this.date = date;
         this.time = time;
-        this.artist = new ArrayList<>();
         this.attendees = new ArrayList<>();
+        this.artists = new ArrayList<>();
     }
 
     public Concert(){}
@@ -54,12 +56,12 @@ public class Concert {
         this.id = id;
     }
 
-    public List<Artist> getArtist() {
-        return artist;
+    public ArrayList<Concert> getArtist() {
+        return artists;
     }
 
-    public void setArtist(List<Artist> artist) {
-        this.artist = artist;
+    public void setArtist(ArrayList<Concert> artist) {
+        this.artists = artist;
     }
 
     public Long getCapacity() {
@@ -102,3 +104,18 @@ public class Concert {
         this.attendees.remove(attendee);
     }
 }
+//public enum Artist {
+//    Fleetwood_Mac,
+//    Kendrick_Lamar,
+//    David_Bowie,
+//    The_Ramones,
+//    The_Beetles,
+//    Patsy_Cline,
+//    Tupac,
+//    John_Coltrane,
+//    Adele,
+//    Billie_Holiday,
+//    Billy_Joel,
+//
+//
+//}
