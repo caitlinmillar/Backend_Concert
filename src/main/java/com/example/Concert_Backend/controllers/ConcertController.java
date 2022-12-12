@@ -56,7 +56,12 @@ public class ConcertController {
     }
 
     //Add attendee to concert
+   // @PatchMapping (value = "/{id}")
+    //public ResponseEntity<Concert> addAttendeeToConcert(){
+        //return new ResponseEntity<>() ;
 
+
+   // }
     //Remove attendee from concert
 
 
