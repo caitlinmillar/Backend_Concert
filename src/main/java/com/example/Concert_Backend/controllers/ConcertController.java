@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.Id;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,29 +33,23 @@ public class ConcertController {
 
     //Posting/adding concert
     @PostMapping
-    public ResponseEntity<Concert> postConcert (@RequestBody Concert concert){
-        Concert concert =
-        return new ResponseEntity<>(concert, HttpStatus.CREATED);
+    public ResponseEntity<Concert> newConcert (@RequestBody Concert concert){
+        Concert savedConcert = concertService.addNewConcert(concert);
+        return new ResponseEntity<>(savedConcert, HttpStatus.CREATED);
     }
 
     //Removing concert
     @DeleteMapping (value = "/{id}")
-    public ResponseEntity<Long> removeConcert (@PathVariable Long id){
-        concertRepository.deleteById(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+    public ResponseEntity removeConcert (@PathVariable Long id){
+        concertService.deleteConcert(id);
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
     //Update concert details
     @PutMapping (value = "/{id}")
-    public ResponseEntity<Concert> updateConcert (@RequestParam Concert concert, @PathVariable Long id){
-        Concert concertUpdate = concertRepository.findById(id).get();
-//        concertUpdate.setArtist(concert.getArtist);
-        concertUpdate.setAttendees(concert.getAttendees());
-        concertUpdate.setDate(concert.getDate());
-        concertUpdate.setTime(concert.getTime());
-        concertUpdate.setCapacity(concert.getCapacity());
-        concertRepository.save(concertUpdate);
-        return new ResponseEntity<>(concertUpdate, HttpStatus.OK);
+    public ResponseEntity<Concert> updateConcert (@RequestBody Concert concert, @PathVariable Long id){
+      concertService.updateConcert(concert, id);
+        return new ResponseEntity<>(concert, HttpStatus.OK);
     }
 
     //Add attendee to concert

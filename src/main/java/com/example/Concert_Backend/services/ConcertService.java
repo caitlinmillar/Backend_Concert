@@ -48,7 +48,15 @@ public class ConcertService {
         concertRepository.save(concert);
         return concert;
     }
+    public void updateConcert(Concert concert, Long id){
+        Concert concertToUpdate = concertRepository.findById(id).get();
+        concertToUpdate.setAttendees(concert.getAttendees());
+        concertToUpdate.setDate(concert.getDate());
+        concertToUpdate.setTime(concert.getTime());
+        concertToUpdate.setCapacity(concert.getCapacity());
+        concertRepository.save(concertToUpdate);
 
+    }
 
 
 }
