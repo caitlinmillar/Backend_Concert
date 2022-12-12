@@ -19,7 +19,7 @@ public class Concert {
     private ArrayList<Concert> artists;
 
     @Column(name = "capacity")
-    private Long capacity;
+    private long capacity;
 
     @Column(name = "date")
     private String date;
@@ -38,7 +38,7 @@ public class Concert {
     @JsonIgnoreProperties({"concerts"})
     private List<Attendee> attendees;
 
-    public Concert(Long capacity, String date, String time){
+    public Concert(String artists, long capacity, String date, String time){
         this.capacity = capacity;
         this.date = date;
         this.time = time;

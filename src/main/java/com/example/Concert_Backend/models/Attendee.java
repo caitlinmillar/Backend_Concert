@@ -23,7 +23,7 @@ public class Attendee {
     private String emailAddress;
 
     @Column (name = "phoneNumber")
-    private Long phoneNumber;
+    private long phoneNumber;
 
     @JsonIgnoreProperties({"attendees"})
     @ManyToMany(mappedBy = "attendees")
@@ -32,7 +32,7 @@ public class Attendee {
 
 
 
-    public Attendee(String name, String emailAddress, Long phoneNumber){
+    public Attendee(String name, String emailAddress, long phoneNumber){
         this.name = name;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
@@ -65,11 +65,11 @@ public class Attendee {
         this.emailAddress = emailAddress;
     }
 
-    public Long getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
