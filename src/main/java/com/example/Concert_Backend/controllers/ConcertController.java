@@ -1,5 +1,6 @@
 package com.example.Concert_Backend.controllers;
 
+import com.example.Concert_Backend.models.Attendee;
 import com.example.Concert_Backend.models.Concert;
 import com.example.Concert_Backend.repositories.ConcertRepository;
 import com.example.Concert_Backend.services.ConcertService;
@@ -53,13 +54,20 @@ public class ConcertController {
     }
 
     //Add attendee to concert
-   // @PatchMapping (value = "/{id}")
-    //public ResponseEntity<Concert> addAttendeeToConcert(){
-        //return new ResponseEntity<>() ;
+    @PatchMapping (value = "/{id}")
+    public ResponseEntity<Concert> addAttendeeToConcert(@PathVariable Long id, @RequestBody Concert concert, @RequestBody Attendee attendee){
+        long attendee_id = attendee.getId();
+        long concert_id = concert.getId();
+        Concert updatedConcert = concertService.addAttendeeToConcert(attendee_id, concert_id);
+        return new ResponseEntity<>(updatedConcert, HttpStatus.OK);
+    }
 
-
-   // }
     //Remove attendee from concert
+    @DeleteMapping (value = "/{id}")
+    public ResponseEntity<Long> removeAttendeeFromConcert(@PathVariable Long id){
+        concertService.removeAttendeeFromConcert(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 
 
 }

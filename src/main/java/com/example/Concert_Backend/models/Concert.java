@@ -93,4 +93,12 @@ public class Concert {
     public void setAttendees(List<Attendee> attendees) {
         this.attendees = attendees;
     }
+
+    public void addAttendee(Attendee attendee){
+        this.attendees.add(attendee);
+    }
+
+    public void removeAttendee(Attendee attendee){
+        this.attendees.remove(attendee);
+    }
 }
