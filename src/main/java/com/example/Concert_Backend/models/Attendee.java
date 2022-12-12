@@ -26,8 +26,12 @@ public class Attendee {
     @Column (name = "phoneNumber")
     private Long phoneNumber;
 
-    @JsonIgnoreProperties ({"attendees"})
+    @JsonIgnoreProperties({"attendees"})
+    @ManyToMany(mappedBy = "attendees")
     private List<Concert> concerts;
+
+
+
 
     public Attendee(String name, String emailAddress, Long phoneNumber){
         this.name = name;
