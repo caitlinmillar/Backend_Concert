@@ -16,7 +16,7 @@ public class Concert {
     private Long id;
 
     @Column(name = "artist")
-    private ArrayList<Concert> artists;
+    private String artist;
 
     @Column(name = "capacity")
     private long capacity;
@@ -38,12 +38,12 @@ public class Concert {
     @JsonIgnoreProperties({"concerts"})
     private List<Attendee> attendees;
 
-    public Concert(String artists, long capacity, String date, String time){
+    public Concert(String artist, long capacity, String date, String time){
         this.capacity = capacity;
         this.date = date;
         this.time = time;
         this.attendees = new ArrayList<>();
-        this.artists = new ArrayList<>();
+        this.artist = artist;
     }
 
     public Concert(){}
@@ -56,12 +56,12 @@ public class Concert {
         this.id = id;
     }
 
-    public ArrayList<Concert> getArtist() {
-        return artists;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setArtist(ArrayList<Concert> artist) {
-        this.artists = artist;
+    public void setArtist(String artists) {
+        this.artist = artists;
     }
 
     public Long getCapacity() {
@@ -104,18 +104,4 @@ public class Concert {
         this.attendees.remove(attendee);
     }
 }
-//public enum Artist {
-//    Fleetwood_Mac,
-//    Kendrick_Lamar,
-//    David_Bowie,
-//    The_Ramones,
-//    The_Beetles,
-//    Patsy_Cline,
-//    Tupac,
-//    John_Coltrane,
-//    Adele,
-//    Billie_Holiday,
-//    Billy_Joel,
-//
-//
-//}
+
