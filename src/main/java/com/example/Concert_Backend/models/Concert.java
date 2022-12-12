@@ -9,8 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity (name = "concerts")
-@Getter
-@Setter
 public class Concert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,4 +46,51 @@ public class Concert {
 
     public Concert(){}
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public List<Artist> getArtist() {
+        return artist;
+    }
+
+    public void setArtist(List<Artist> artist) {
+        this.artist = artist;
+    }
+
+    public Long getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(Long capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public List<Attendee> getAttendees() {
+        return attendees;
+    }
+
+    public void setAttendees(List<Attendee> attendees) {
+        this.attendees = attendees;
+    }
 }
