@@ -48,11 +48,13 @@ public class AttendeeService {
         Attendee foundAttendee = attendeeRepository.findById(id).get();
         for (Concert concert : foundAttendee.getConcerts()){
             concert.removeAttendee(foundAttendee);
-//            if (foundAttendee.equals(null);
-
-            concertRepository.save(concert);
-
-            attendeeRepository.deleteById(id);
+            if (foundAttendee.equals(null)){
+                break;
+            } else{
+                concertRepository.save(concert);
+                attendeeRepository.deleteById(id);
+                continue;
+            }
         }
     }
 }
