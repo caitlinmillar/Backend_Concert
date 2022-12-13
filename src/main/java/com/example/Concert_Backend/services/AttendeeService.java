@@ -46,17 +46,31 @@ public class AttendeeService {
     public void deleteAttendee(Long id){
 // taken from 'removeAttendeeFromConcert'
         Attendee foundAttendee = attendeeRepository.findById(id).get();
-        for (int i = 0; i< concertRepository.count(); i++){
-
-            if (concertRepository.count() == 0){
+        List <Concert> concerts = foundAttendee.getConcerts();
+        for (int i = 0; i < concerts.stream().count(); i++){
+            if (foundAttendee.equals(null)){
                 break;
             } else{
-                concertRepository.save(foundAttendee);
-                attendeeRepository.deleteById(id);
+                concerts.get(i).removeAttendee(foundAttendee);
+                concertRepository.save(concerts.get(i));
                 continue;
             }
-        }
+        } attendeeRepository.deleteById(id);
     }
+//public void deleteAttendee(Long id){
+//// taken from 'removeAttendeeFromConcert'
+//    Attendee foundAttendee = attendeeRepository.findById(id).get();
+//    System.out.println(foundAttendee.getConcerts());
+//    for (Concert concert : foundAttendee.getConcerts()){
+//        if (foundAttendee.equals(null)){
+//            break;
+//        } else{
+//            concert.removeAttendee(foundAttendee);
+//            concertRepository.save(concert);
+//            continue;
+//        }
+//    }attendeeRepository.deleteById(id);
+//}
 }
 
-concert.removeAttendee(foundAttendee);
+//concert.removeAttendee(foundAttendee);
