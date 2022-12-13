@@ -46,15 +46,17 @@ public class AttendeeService {
     public void deleteAttendee(Long id){
 // taken from 'removeAttendeeFromConcert'
         Attendee foundAttendee = attendeeRepository.findById(id).get();
-        for (Concert concert : foundAttendee.getConcerts()){
-            concert.removeAttendee(foundAttendee);
-            if (foundAttendee.equals(null)){
+        for (int i = 0; i< concertRepository.count(); i++){
+
+            if (concertRepository.count() == 0){
                 break;
             } else{
-                concertRepository.save(concert);
+                concertRepository.save(foundAttendee);
                 attendeeRepository.deleteById(id);
                 continue;
             }
         }
     }
 }
+
+concert.removeAttendee(foundAttendee);
