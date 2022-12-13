@@ -44,12 +44,8 @@ public class AttendeeController {
 
     @PutMapping(value = "/{id}")
     public ResponseEntity<Attendee> updateAttendee(@RequestParam Attendee attendee, @PathVariable Long id){
-        Attendee attendeeUpdate = attendeeRepository.findById(id).get();
-        attendeeUpdate.setName(attendee.getName());
-        attendeeUpdate.setEmailAddress(attendee.getEmailAddress());
-        attendeeUpdate.setPhoneNumber(attendee.getPhoneNumber());
-        attendeeRepository.save(attendeeUpdate);
-        return new ResponseEntity<>(attendeeUpdate, HttpStatus.OK);
+        attendeeService.updateAttendee(id, attendee);
+        return new ResponseEntity<>(attendee, HttpStatus.OK);
     }
 
 }
