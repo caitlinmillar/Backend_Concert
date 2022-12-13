@@ -1,6 +1,7 @@
 package com.example.Concert_Backend.services;
 
 import com.example.Concert_Backend.models.Attendee;
+import com.example.Concert_Backend.models.Concert;
 import com.example.Concert_Backend.repositories.AttendeeRepository;
 import com.example.Concert_Backend.repositories.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +44,15 @@ public class AttendeeService {
     }
 
     public void deleteAttendee(Long id){
-//        concertRepository.fi
-        attendeeRepository.deleteById(id);
+// taken from 'removeAttendeeFromConcert'
+        Attendee foundAttendee = attendeeRepository.findById(id).get();
+        for (Concert concert : foundAttendee.getConcerts()){
+            concert.removeAttendee(foundAttendee);
+//            if (foundAttendee.equals(null);
+
+            concertRepository.save(concert);
+
+            attendeeRepository.deleteById(id);
+        }
     }
 }

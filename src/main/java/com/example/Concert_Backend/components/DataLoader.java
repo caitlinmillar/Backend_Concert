@@ -48,7 +48,6 @@ public class DataLoader implements ApplicationRunner {
         concertRepository.save(fleetwoodMac);
 
         Concert billyJoel = new Concert("Billy Joel", 600000, "13/12/2013","13:00");
-        billyJoel.addAttendee(caitlin);
         billyJoel.addAttendee(berna);
         concertRepository.save(billyJoel);
 
