@@ -5,14 +5,9 @@ import com.example.Concert_Backend.models.Concert;
 import com.example.Concert_Backend.repositories.AttendeeRepository;
 import com.example.Concert_Backend.repositories.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class ConcertService {
@@ -61,12 +56,13 @@ public class ConcertService {
 //        for(Concert concert : )
 //    }
 
-    public void removeAttendeeFromConcert (Long id){
-        Attendee foundAttendee = attendeeRepository.findById(id).get();
+    public Concert removeAttendeeFromConcert (long concert_id, long attendee_id ){
+        Attendee foundAttendee = attendeeRepository.findById(concert_id).get();
         for (Concert concert : foundAttendee.getConcerts()){
             concert.removeAttendee(foundAttendee);
         }
 
+        return null;
     }
 
     //updating concert details

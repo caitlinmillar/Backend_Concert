@@ -63,11 +63,11 @@ public class ConcertController {
     }
 
     //Remove attendee from concert
-    @DeleteMapping (value = "/remove")
-    public ResponseEntity removeAttendeeFromConcert(@PathVariable Long id, @RequestBody BookingsDTO bookingsDTO){
+    @DeleteMapping (value = "/remove/{id}")
+    public ResponseEntity<Concert> removeAttendeeFromConcert(@PathVariable Long id, @RequestBody BookingsDTO bookingsDTO){
         long attendee_id = bookingsDTO.getAttendee_id();
-        Concert removedAttendee = concertService.removeAttendeeFromConcert(id, attendee_id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        concertService.removeAttendeeFromConcert(id, attendee_id);
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
 
