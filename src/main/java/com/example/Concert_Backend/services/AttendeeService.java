@@ -29,11 +29,12 @@ public class AttendeeService {
         return attendee;
     }
 
-    public void updateAttendee(long id, Attendee attendee) {
+    public Attendee updateAttendee(long id, Attendee attendee) {
         Attendee attendeeUpdate = attendeeRepository.findById(id).get();
         attendeeUpdate.setName(attendee.getName());
         attendeeUpdate.setEmailAddress(attendee.getEmailAddress());
         attendeeUpdate.setPhoneNumber(attendee.getPhoneNumber());
         attendeeRepository.save(attendeeUpdate);
+        return attendeeUpdate;
     }
 }

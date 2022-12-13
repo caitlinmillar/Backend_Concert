@@ -49,7 +49,7 @@ public class ConcertController {
     //Update concert details
     @PutMapping (value = "/{id}")
     public ResponseEntity<Concert> updateConcert (@RequestBody Concert concert, @PathVariable Long id){
-      concertService.updateConcert(concert, id);
+        concertService.updateConcert(concert, id);
         return new ResponseEntity<>(concert, HttpStatus.OK);
     }
 

@@ -43,9 +43,9 @@ public class AttendeeController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Attendee> updateAttendee(@RequestParam Attendee attendee, @PathVariable Long id){
-        attendeeService.updateAttendee(id, attendee);
-        return new ResponseEntity<>(attendee, HttpStatus.OK);
+    public ResponseEntity<Attendee> updateAttendee(@RequestBody Attendee attendee, @PathVariable Long id){
+        Attendee updatedAttendee = attendeeService.updateAttendee(id, attendee);
+        return new ResponseEntity<>(updatedAttendee, HttpStatus.OK);
     }
 
 }
