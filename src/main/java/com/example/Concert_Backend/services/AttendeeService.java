@@ -37,4 +37,8 @@ public class AttendeeService {
         attendeeRepository.save(attendeeUpdate);
         return attendeeUpdate;
     }
+
+    public void deleteAttendee(long id){
+        attendeeRepository.deleteById(id);
+    }
 }

@@ -37,9 +37,9 @@ public class AttendeeController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> removeAttendee(@PathVariable Long id){
-        attendeeRepository.deleteById(id);
-        return new ResponseEntity<>(id, HttpStatus.OK);
+    public ResponseEntity removeAttendee(@PathVariable Long id){
+        attendeeService.deleteAttendee(id);
+        return new ResponseEntity(null, HttpStatus.OK);
     }
 
     @PutMapping(value = "/{id}")
