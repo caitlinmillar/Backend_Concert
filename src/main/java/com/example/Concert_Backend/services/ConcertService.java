@@ -48,21 +48,13 @@ public class ConcertService {
         return concert;
     }
 
-    //removing attendee from concert
-//    public void removeAttendeeFromConcert(long concert_id, long attendee_id){
-//        Concert concert = concertRepository.findById(concert_id).get();
-//        Attendee attendee = attendeeService.getAttendeeById(attendee_id);
-//        List<Attendee> attendees = concert.getAttendees();
-//        for(Concert concert : )
-//    }
-
-    public Concert removeAttendeeFromConcert (long concert_id, long attendee_id ){
-        Attendee foundAttendee = attendeeRepository.findById(concert_id).get();
+    //add is present with if statement
+    public void removeAttendeeFromConcert (Long id){
+        Attendee foundAttendee = attendeeRepository.findById(id).get();
         for (Concert concert : foundAttendee.getConcerts()){
             concert.removeAttendee(foundAttendee);
+            concertRepository.save(concert);
         }
-
-        return null;
     }
 
     //updating concert details

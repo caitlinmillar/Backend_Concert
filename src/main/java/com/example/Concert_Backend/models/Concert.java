@@ -8,7 +8,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity (name = "concerts")
+@Entity(name = "concerts")
 public class Concert {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,6 +27,7 @@ public class Concert {
     @Column(name = "time")
     private String time;
 
+    @JsonIgnoreProperties({"concerts"})
     @ManyToMany
     @JoinTable(
             name = "attendees_concerts",
@@ -34,8 +35,6 @@ public class Concert {
             inverseJoinColumns = @JoinColumn(name = "attendee_id")
     )
 
-
-    @JsonIgnoreProperties({"concerts"})
     private List<Attendee> attendees;
 
     public Concert(String artist, long capacity, String date, String time){

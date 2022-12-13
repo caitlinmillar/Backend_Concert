@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/concerts")
+@RequestMapping("concerts")
 public class ConcertController {
     @Autowired
     ConcertService concertService;
@@ -64,11 +64,18 @@ public class ConcertController {
 
     //Remove attendee from concert
     @DeleteMapping (value = "/remove/{id}")
-    public ResponseEntity removeAttendeeFromConcert(@PathVariable Long id, @RequestBody BookingsDTO bookingsDTO){
-        long attendee_id = bookingsDTO.getAttendee_id();
-        concertService.removeAttendeeFromConcert(id, attendee_id);
-        return new ResponseEntity(null, HttpStatus.OK);
+    public ResponseEntity<Long> removeAttendeeFromConcert(@PathVariable Long id){
+        concertService.removeAttendeeFromConcert(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
+
+
+//    @DeleteMapping (value = "/remove/{id}")
+//    public ResponseEntity removeAttendeeFromConcert(@PathVariable Long id, @RequestBody BookingsDTO bookingsDTO){
+//        long attendee_id = bookingsDTO.getAttendee_id();
+//        concertService.removeAttendeeFromConcert(id, attendee_id);
+//        return new ResponseEntity(null, HttpStatus.OK);
+//    }
 
 
 }

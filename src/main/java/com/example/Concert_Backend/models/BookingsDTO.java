@@ -17,4 +17,6 @@ public class BookingsDTO {
     public void setAttendee_id(long attendee_id) {
         this.attendee_id = attendee_id;
     }
+
+    //message potion, String property
 }
