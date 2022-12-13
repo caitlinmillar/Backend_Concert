@@ -1,8 +1,8 @@
 package com.example.Concert_Backend.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.Getter;
-import lombok.Setter;
+
+
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -28,8 +28,6 @@ public class Attendee {
     @JsonIgnoreProperties({"attendees"})
     @ManyToMany(mappedBy = "attendees")
     private List<Concert> concerts;
-
-
 
 
     public Attendee(String name, String emailAddress, long phoneNumber){

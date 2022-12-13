@@ -25,10 +25,12 @@ public class ConcertService {
         concertRepository.save(concert);
         return concert;
     }
+
     //Deleting concert
     public void deleteConcert(Long id){
     concertRepository.deleteById(id);
     }
+
     //Get all concerts
     public List<Concert>getAllConcerts (){
         return concertRepository.findAll();

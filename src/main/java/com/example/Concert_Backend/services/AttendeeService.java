@@ -2,6 +2,7 @@ package com.example.Concert_Backend.services;
 
 import com.example.Concert_Backend.models.Attendee;
 import com.example.Concert_Backend.repositories.AttendeeRepository;
+import com.example.Concert_Backend.repositories.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +17,9 @@ public class AttendeeService {
     @Autowired
     AttendeeRepository attendeeRepository;
 
+    @Autowired
+    ConcertRepository concertRepository;
+
     public List<Attendee> getAllAttendees() {
         return attendeeRepository.findAll();
     }
@@ -29,7 +33,7 @@ public class AttendeeService {
         return attendee;
     }
 
-    public Attendee updateAttendee(long id, Attendee attendee) {
+    public Attendee updateAttendee(Long id, Attendee attendee) {
         Attendee attendeeUpdate = attendeeRepository.findById(id).get();
         attendeeUpdate.setName(attendee.getName());
         attendeeUpdate.setEmailAddress(attendee.getEmailAddress());
@@ -38,7 +42,8 @@ public class AttendeeService {
         return attendeeUpdate;
     }
 
-    public void deleteAttendee(long id){
+    public void deleteAttendee(Long id){
+//        concertRepository.fi
         attendeeRepository.deleteById(id);
     }
 }
