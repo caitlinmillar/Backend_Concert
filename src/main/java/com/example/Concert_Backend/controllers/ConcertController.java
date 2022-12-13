@@ -55,10 +55,10 @@ public class ConcertController {
 
     //Add attendee to concert
     @PatchMapping (value = "/{id}")
-    public ResponseEntity<Concert> addAttendeeToConcert(@PathVariable Long id, @RequestBody Concert concert, @RequestBody Attendee attendee){
+    public ResponseEntity<Concert> addAttendeeToConcert(@PathVariable Long id, @RequestParam Attendee attendee){
         long attendee_id = attendee.getId();
-        long concert_id = concert.getId();
-        Concert updatedConcert = concertService.addAttendeeToConcert(attendee_id, concert_id);
+//        long concert_id = concert.getId();
+        Concert updatedConcert = concertService.addAttendeeToConcert(attendee_id, id);
         return new ResponseEntity<>(updatedConcert, HttpStatus.OK);
     }
 

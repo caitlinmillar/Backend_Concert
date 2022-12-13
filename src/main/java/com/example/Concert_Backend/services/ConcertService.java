@@ -73,6 +73,7 @@ public class ConcertService {
     public Concert updateConcert(Concert concert, long id){
         Concert concertToUpdate = concertRepository.findById(id).get();
         concertToUpdate.setAttendees(concert.getAttendees());
+        concertToUpdate.setArtist(concert.getArtist());
         concertToUpdate.setDate(concert.getDate());
         concertToUpdate.setTime(concert.getTime());
         concertToUpdate.setCapacity(concert.getCapacity());
