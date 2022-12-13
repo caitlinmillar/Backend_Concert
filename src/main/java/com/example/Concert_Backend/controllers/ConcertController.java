@@ -44,7 +44,7 @@ public class ConcertController {
     @DeleteMapping (value = "/{id}")
     public ResponseEntity removeConcert (@PathVariable Long id){
         concertService.deleteConcert(id);
-        return new ResponseEntity(null, HttpStatus.OK);
+        return new ResponseEntity("Successfully removed concert", HttpStatus.OK);
     }
 
     //Update concert details
