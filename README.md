@@ -3,6 +3,7 @@
 
 ![TRack 2.png](TRack 2.png?raw=true "Logo")
 </div>
+<img src="./"
 
 <h1 align="center">Hi 👋 we are Track2!</h1>
 <h3 align="center">A group of software-engineers-in-training. This is our first BackEnd project.</h3>
@@ -30,8 +31,9 @@ For started our project by defining our MVP. We decided the most integral logic 
 
 ### 💻 Class Diagram and Entity Relationship Diagram
 <div>
+<img src="./UML:ERD.png" alt ="uml and erd diagrams"/>
 
-![UML:ERD.png](UML:ERD.png)
+[//]: # (![UML:ERD.png]&#40;UML:ERD.png&#41;)
 </div>
 
 ## Tech Stack :
