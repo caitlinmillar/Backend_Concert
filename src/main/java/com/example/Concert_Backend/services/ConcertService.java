@@ -70,13 +70,14 @@ public class ConcertService {
     }
 
     //updating concert details
-    public void updateConcert(Concert concert, long id){
+    public Concert updateConcert(Concert concert, long id){
         Concert concertToUpdate = concertRepository.findById(id).get();
         concertToUpdate.setAttendees(concert.getAttendees());
         concertToUpdate.setDate(concert.getDate());
         concertToUpdate.setTime(concert.getTime());
         concertToUpdate.setCapacity(concert.getCapacity());
         concertRepository.save(concertToUpdate);
+        return concertToUpdate;
 
     }
 
