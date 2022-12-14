@@ -21,7 +21,8 @@
 For started our project by defining our MVP. We decided the most integral logic of the application would be:
 
 - creating, removing and updating concert details
-- adding and removing attendees from concerts
+- creating, removing and updating attendee details
+- ability to add and remove attendees from concerts
 - the ability to display all concerts and all attendees
 
 ### Concert
@@ -34,7 +35,7 @@ Our Concert and Attendee classes have a many-to-many relationship and as such at
 
 ---
 Each Attendee object has an attendee id, name, email address, phone number and a list of concerts they will be attending.
-Attendees can be created or removed as well as added or removed from individual concerts.
+Attendees can be created or removed from the Repository as well as added or removed from individual concerts.
 </p>
 
 
@@ -49,6 +50,12 @@ Attendees can be created or removed as well as added or removed from individual 
 - PostgresSQL
 - Postman
 - Postico
+
+### Extensions
+- Added a DTO class to handle bookings
+- Error Handling : added response messages for ease of understanding 
+- Derived Queries : added specific queries (see below, section Filter and Sort)
+
 
 ## 💬 How to use the API
 ### RESTful roots:
@@ -66,9 +73,13 @@ Attendees can be created or removed as well as added or removed from individual 
 -
 ### Filters and Sort:
 **Filter**
--
+- Get list of attendees name
+- Get number of attendees
+- Find concerts where the ticket price is greater than 150
+
 **Sort**
--
+- Sort concerts by capacity (Lowest to Highest)
+- Sort concerts by ticket price (Highest to Lowest)
 
 
 
