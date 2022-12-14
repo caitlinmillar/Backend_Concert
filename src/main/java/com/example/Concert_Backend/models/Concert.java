@@ -27,8 +27,8 @@ public class Concert {
     @Column(name = "time")
     private String time;
 
-    @Column (name = "ticketPrice")
-    private double ticketPrice;
+    @Column (name = "ticket_price")
+    private double ticket_price;
 
     @JsonIgnoreProperties({"concerts"})
     @ManyToMany
@@ -39,13 +39,13 @@ public class Concert {
     )
     private List<Attendee> attendees;
 
-    public Concert(String artist, long capacity, String date, String time, double ticketPrice){
+    public Concert(String artist, long capacity, String date, String time, double ticket_price){
         this.capacity = capacity;
         this.date = date;
         this.time = time;
         this.attendees = new ArrayList<>();
         this.artist = artist;
-        this.ticketPrice = ticketPrice;
+        this.ticket_price = ticket_price;
     }
 
     public Concert(){}
@@ -107,11 +107,11 @@ public class Concert {
     }
 
     public double getTicketPrice() {
-        return ticketPrice;
+        return ticket_price;
     }
 
-    public void setTicketPrice(double ticketPrice) {
-        this.ticketPrice = ticketPrice;
+    public void setTicketPrice(double ticket_price) {
+        this.ticket_price = ticket_price;
     }
 }
 

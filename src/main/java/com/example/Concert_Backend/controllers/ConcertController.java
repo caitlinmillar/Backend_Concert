@@ -83,9 +83,13 @@ public class ConcertController {
     }
 
     @GetMapping (value = "/ticketPrices")
-    public ResponseEntity<List<Concert>> getConcertsBasedOnTicketPrices(){
+    public ResponseEntity<List<Concert>> getConcertsBasedOnTicketPrice(){
         return new ResponseEntity<>(concertRepository.findByConcertAndSortByTicketPriceDesc(), HttpStatus.OK);
     }
 
+    @GetMapping (value = "/ticketPrices/over150")
+    public ResponseEntity<List<Concert>> getConcertsWhereTicketPricesOver150(){
+        return new ResponseEntity<>(concertRepository.findByConcertWhereTicketPriceIsGreaterThan150(), HttpStatus.OK);
+    }
 
 }

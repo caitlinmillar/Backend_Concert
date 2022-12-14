@@ -15,6 +15,10 @@ public interface ConcertRepository extends JpaRepository<Concert, Long> {
     List<Concert> findByConcertAndSortByCapacity();
 
     // SQL query to sort concerts by ticket price (HIGHEST to LOWEST)
-    @Query (value = "SELECT * FROM concerts ORDER BY ticket price DESC", nativeQuery = true)
+    @Query (value = "SELECT*FROM concerts ORDER BY ticket_price DESC", nativeQuery = true)
     List <Concert> findByConcertAndSortByTicketPriceDesc();
+
+    // SQL distinct query to find concerts with ticket prices greater than 150
+    @Query (value = "SELECT*FROM concerts WHERE ticket_price > 150.00", nativeQuery = true)
+    List<Concert> findByConcertWhereTicketPriceIsGreaterThan150();
 }
