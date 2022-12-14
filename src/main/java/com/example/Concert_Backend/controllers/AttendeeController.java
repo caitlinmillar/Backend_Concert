@@ -47,7 +47,7 @@ public class AttendeeController {
 
     // deleting attendee by id
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Long> removeAttendee(@PathVariable Long id){
+    public ResponseEntity removeAttendee(@PathVariable Long id){
         attendeeService.deleteAttendee(id);
         return new ResponseEntity("Successfully deleted attendee", HttpStatus.OK);
     }
