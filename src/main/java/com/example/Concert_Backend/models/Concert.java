@@ -102,11 +102,11 @@ public class Concert {
         this.attendees.remove(attendee);
     }
 
-    @PreRemove
-    private void removeAttendeeFromConcert (){
-        for (Attendee attendee : attendees){
-            attendee.getConcerts().remove(this);
-        }
-    }
+//    @PreRemove
+//    private void removeAttendeeFromConcert (){
+//        for (Attendee attendee : attendees){
+//            attendee.getConcerts().remove(this);
+//        }
+//    }
 }
 

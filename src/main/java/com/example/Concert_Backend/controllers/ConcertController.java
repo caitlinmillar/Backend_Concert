@@ -65,23 +65,24 @@ public class ConcertController {
     }
 
     //Remove attendee from concert
-    @DeleteMapping (value = "/remove/{id}")
-    public ResponseEntity<HttpStatus> removeAttendeeFromConcert(@PathVariable Long id){
-        try{
-            concertService.removeAttendeeFromConcert(id);
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        } catch (Exception e){
-            return new ResponseEntity<>(null, HttpStatus.OK);
-        }
-    }
-
-
 //    @DeleteMapping (value = "/remove/{id}")
-//    public ResponseEntity removeAttendeeFromConcert(@PathVariable Long id, @RequestBody BookingsDTO bookingsDTO){
-//        long attendee_id = bookingsDTO.getAttendee_id();
-//        concertService.removeAttendeeFromConcert(id, attendee_id);
-//        return new ResponseEntity(null, HttpStatus.OK);
+//    public ResponseEntity<HttpStatus> removeAttendeeFromConcert(@PathVariable Long id){
+//        try{
+//            concertService.removeAttendeeFromConcert(id);
+//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+//        } catch (Exception e){
+//            return new ResponseEntity<>(null, HttpStatus.OK);
+//        }
 //    }
+
+// get/concerts/:id/attendees
+    @DeleteMapping (value = "/{concertId}/attendees/{attendeeId}")
+    public ResponseEntity removeAttendeeFromConcert(
+            @PathVariable Long concertId,
+            @PathVariable Long attendeeId){
+        concertService.removeAttendeeFromConcert(concertId, attendeeId);
+        return new ResponseEntity(null, HttpStatus.OK);
+    }
 
 
 }

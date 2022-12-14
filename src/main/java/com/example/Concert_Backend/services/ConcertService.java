@@ -54,12 +54,11 @@ public class ConcertService {
 
     // (to do): add is present with if statement
     // removing the attendee from concert
-    public void removeAttendeeFromConcert (Long id){
-        Attendee foundAttendee = attendeeRepository.findById(id).get();
-        for (Concert foundConcert : foundAttendee.getConcerts()){
-            foundConcert.removeAttendee(foundAttendee);
-            concertRepository.save(foundConcert);
-        }
+    public void removeAttendeeFromConcert (Long concertId, Long attendeeId){
+        Attendee foundAttendee = attendeeRepository.findById(attendeeId).get();
+        Concert foundConcert = concertRepository.findById(concertId).get();
+        foundConcert.removeAttendee(foundAttendee);
+        concertRepository.save(foundConcert);
     }
 
     //updating concert details
