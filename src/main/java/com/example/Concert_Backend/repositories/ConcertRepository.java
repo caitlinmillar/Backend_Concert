@@ -21,4 +21,6 @@ public interface ConcertRepository extends JpaRepository<Concert, Long> {
     // SQL distinct query to find concerts with ticket prices greater than 150
     @Query (value = "SELECT*FROM concerts WHERE ticket_price > 150.00", nativeQuery = true)
     List<Concert> findByConcertWhereTicketPriceIsGreaterThan150();
+
+
 }

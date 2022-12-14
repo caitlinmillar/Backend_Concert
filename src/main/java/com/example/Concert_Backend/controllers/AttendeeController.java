@@ -1,6 +1,7 @@
 package com.example.Concert_Backend.controllers;
 
 import com.example.Concert_Backend.models.Attendee;
+import com.example.Concert_Backend.repositories.AttendeeRepository;
 import com.example.Concert_Backend.services.AttendeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,9 @@ public class AttendeeController {
 
     @Autowired
     AttendeeService attendeeService;
+
+    @Autowired
+    AttendeeRepository attendeeRepository;
 
     // getting all attendees
     @GetMapping
@@ -50,5 +54,11 @@ public class AttendeeController {
     public ResponseEntity removeAttendee(@PathVariable Long id){
         attendeeService.deleteAttendee(id);
         return new ResponseEntity("Successfully deleted attendee", HttpStatus.OK);
+    }
+
+    // getting just the names of the attendees
+    @GetMapping(value = "/names")
+    public ResponseEntity<List<Attendee>> getNamesOfAttendees (){
+        return new ResponseEntity<>(attendeeRepository.allAttendeesByName(), HttpStatus.OK);
     }
 }
