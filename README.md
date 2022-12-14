@@ -10,7 +10,9 @@
 
 ### 🚀 Project Outline
 
-<p> In this project we have built an API for a concert booking system. It implements Java, SpringBoot and a Postgres SQL Database.
+<p> In this project we have built an API for a concert booking system. It implements Java, SpringBoot and a Postgres SQL Database. 
+
+The two classes of Concert and Attendee will have a many-to-many relationship.
 
 </p>
 
@@ -25,26 +27,30 @@ For started our project by defining our MVP. We decided the most integral logic 
 - ability to add and remove attendees from concerts
 - the ability to display all concerts and all attendees
 
-### Concert
+### 🎸 Concert
 
 ---
 Within the Concert Model we have defined the following properties: a concert id, ticket price, capacity, date, time, artist and a list of attendees.
+
 Our Concert and Attendee classes have a many-to-many relationship and as such attendees can be removed or added to a concert.
 
-### Attendee
+In accordance with the principles of a many-to-many relationships it is possible for a concert to have many attendees and for an attendee to be going to many concerts.
+
+### 🎹 Attendee
 
 ---
 Each Attendee object has an attendee id, name, email address, phone number and a list of concerts they will be attending.
+
 Attendees can be created or removed from the Repository as well as added or removed from individual concerts.
 </p>
 
 
-### 💻 Class Diagram and Entity Relationship Diagram
+### Class Diagram and Entity Relationship Diagram
 <div>
 <img src="./UML:ERD.png" alt ="uml and erd diagrams"/>
 </div>
 
-## Tech Stack :
+## 💻 Tech Stack :
 - Intellij, JDK 17
 - Spring Boot
 - PostgresSQL
@@ -52,34 +58,64 @@ Attendees can be created or removed from the Repository as well as added or remo
 - Postico
 
 ### Extensions
-- Added a DTO class to handle bookings
-- Error Handling : added response messages for ease of understanding 
-- Derived Queries : added specific queries (see below, section Filter and Sort)
+We were able to implement several of our ideas for extending our projects' functionality. They are as follows:
+- We added a **Data Transfer Object** class to handle bookings
+- We developed some **error handling** by adding response messages.
+These related to letting the user know a concert/attendee has been successfully removed.
+As well as, writing an if/else statement to make sure only attendees and concerts with id's in existence could be updated/removed/added.
+Similarly, if an id that doesn't exist is inputted in this way, an error message will be returned 
+- We added some **derived queries** (see below, section Filter and Sort)
 
 
 ## 💬 How to use the API
 ### RESTful roots:
 **Index**
--
--GET
--
+- GET http://localhost:8080/concerts ---►
+gets all concerts
+- GET http://localhost:8080/attendees ---►
+gets all attendees
+---
 **Show**
--
+- GET http://localhost:8080/attendees/3 ---►
+gets an attendee by id
+- GET http://localhost:8080/concerts/1 ---►
+  gets a concert by id
+---
 **Create**
--
+- POST http://localhost:8080/attendees ---►
+creating a new attendee
+- POST http://localhost:8080/concerts ---►
+creating a new concert
+---
 **Update**
--
+- PUT http://localhost:8080/concerts/2 ---►
+updating a concert
+- PUT http://localhost:8080/attendees/5 ---►
+updating an attendee
+- PATCH http://localhost:8080/concerts/1 ---►
+adding an attendee to a concert
+---
 **Delete**
--
+- DELETE http://localhost:8080/concerts/1/attendees/3 ---►
+removing an attendee from a concert
+- DELETE http://localhost:8080/concerts/6 ---►
+deleting a concert
+- DELETE http://localhost:8080/attendees/4 ---►
+deleting an attendee
+
 ### Filters and Sort:
 **Filter**
-- Get list of attendees name
-- Get number of attendees
-- Find concerts where the ticket price is greater than 150
-
+- GET http://localhost:8080/attendees/names ---►
+Getting a list of attendees name
+- GET http://localhost:8080/attendees/numberOfAttendees ---►
+Get number of attendees
+- GET http://localhost:8080/concerts/ticketPrices/over150 ---►
+Find concerts where the ticket price is greater than 150
 **Sort**
-- Sort concerts by capacity (Lowest to Highest)
-- Sort concerts by ticket price (Highest to Lowest)
+- GET http://localhost:8080/concerts/capacities ---►
+Sort concerts by capacity (Lowest to Highest)
+- GET http://localhost:8080/concerts/ticketPrices ---►
+Sort concerts by ticket price (Highest to Lowest)
 
 
 
@@ -116,14 +152,13 @@ Start the server
 
 
 ## ⚡ Credits
-**Caitlin Millar**: [github](https://github.com/caitlinmillar)
+**Caitlin Millar**: [caitlinmillar](https://github.com/caitlinmillar)
 
-**Berna Yasar** 
+**Berna Yasar**: [Byasar3](https://github.com/Byasar3)
 
-**Loshanth Selvanayagam**
+**Loshanth Selvanayagam**: [Losh-Selva](https://github.com/Losh-Selva)
 
-
-**Abdullah Taibi**
+**Abdullah Taibi**: [AbdullahTaibi](https://github.com/AbdullahTaibi)
 
 [//]: # (<h3 align="left">Connect with me:</h3>)
 
