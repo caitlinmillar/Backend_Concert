@@ -75,5 +75,12 @@ public class ConcertController {
         return new ResponseEntity("Successfully removed " + attendeeId + " from " + concertId, HttpStatus.OK);
     }
 
+    // gives you a list of all the concerts based on their capacity from lowest to highest
+    // done via SQL query in concert repository
+    @GetMapping (value = "/capacities")
+    public ResponseEntity<List<Concert>> getConcertsBasedOnCapacity(){
+        return new ResponseEntity<>(concertRepository.findByConcertAndSortByCapacity(), HttpStatus.OK);
+    }
+
 
 }
