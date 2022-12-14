@@ -1,10 +1,7 @@
 
-<div style="width:100px ; height:100px" >
-[//]: # (![TRack 2.png]&#40;TRack 2.png?raw=true "Logo"&#41;)
+<div>
+<img src="./TRack 2.png" alt="logo" align="centre" width="100" height="100"/>
 </div>
-
-<img src="./TRack 2.png" alt="logo" align="centre" width="100" height="100" />
-
 <h1 align="center">Hi 👋 we are Track2!</h1>
 <h3 align="center">A group of software-engineers-in-training. This is our first BackEnd project.</h3>
 
@@ -27,13 +24,23 @@ For started our project by defining our MVP. We decided the most integral logic 
 - adding and removing attendees from concerts
 - the ability to display all concerts and all attendees
 
+### Concert
+
+---
+Within the Concert Model we have defined the following properties: a concert id, ticket price, capacity, date, time, artist and a list of attendees.
+Our Concert and Attendee classes have a many-to-many relationship and as such attendees can be removed or added to a concert.
+
+### Attendee
+
+---
+Each Attendee object has an attendee id, name, email address, phone number and a list of concerts they will be attending.
+Attendees can be created or removed as well as added or removed from individual concerts.
 </p>
+
 
 ### 💻 Class Diagram and Entity Relationship Diagram
 <div>
 <img src="./UML:ERD.png" alt ="uml and erd diagrams"/>
-
-[//]: # (![UML:ERD.png]&#40;UML:ERD.png&#41;)
 </div>
 
 ## Tech Stack :
@@ -44,6 +51,26 @@ For started our project by defining our MVP. We decided the most integral logic 
 - Postico
 
 ## 💬 How to use the API
+### RESTful roots:
+**Index**
+-
+-GET
+-
+**Show**
+-
+**Create**
+-
+**Update**
+-
+**Delete**
+-
+### Filters and Sort:
+**Filter**
+-
+**Sort**
+-
+
+
 
 ## 📫 How to install and run the project
 
