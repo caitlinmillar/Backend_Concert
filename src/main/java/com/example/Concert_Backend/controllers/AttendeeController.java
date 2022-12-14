@@ -58,13 +58,12 @@ public class AttendeeController {
 
     // getting just the names of the attendees
     @GetMapping(value = "/names")
-    public ResponseEntity<List<Attendee>> getNamesOfAttendees (){
+    public ResponseEntity<List<String>> getNamesOfAttendees (){
         return new ResponseEntity<>(attendeeRepository.findByAttendeesAndFilterByName(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/numberOfAttendees")
-    public ResponseEntity<List<Attendee>> getNumberOfAttendees (){
-        return new ResponseEntity<>(attendeeRepository.FindNumberOfAttendees(), HttpStatus.OK);
+    public ResponseEntity<Integer> getNumberOfAttendees (){
+        return new ResponseEntity<>(attendeeRepository.findNumberOfAttendees(), HttpStatus.OK);
     }
-
 }

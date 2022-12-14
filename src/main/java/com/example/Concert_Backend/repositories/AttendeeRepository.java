@@ -13,8 +13,8 @@ public interface AttendeeRepository extends JpaRepository<Attendee, Long> {
     // SQL query to get names of attendees
 
     @Query (value = "SELECT name FROM attendees", nativeQuery = true)
-    List <Attendee> findByAttendeesAndFilterByName();
+    List <String> findByAttendeesAndFilterByName();
 
     @Query (value = "SELECT COUNT (DISTINCT name) as names FROM attendees", nativeQuery = true)
-    List<Attendee> FindNumberOfAttendees();
+    int findNumberOfAttendees();
 }
