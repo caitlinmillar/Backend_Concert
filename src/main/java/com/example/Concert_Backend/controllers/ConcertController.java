@@ -64,24 +64,15 @@ public class ConcertController {
         return new ResponseEntity<>(updatedConcert, HttpStatus.OK);
     }
 
-    //Remove attendee from concert
-//    @DeleteMapping (value = "/remove/{id}")
-//    public ResponseEntity<HttpStatus> removeAttendeeFromConcert(@PathVariable Long id){
-//        try{
-//            concertService.removeAttendeeFromConcert(id);
-//            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-//        } catch (Exception e){
-//            return new ResponseEntity<>(null, HttpStatus.OK);
-//        }
-//    }
 
-// get/concerts/:id/attendees
+    // another pathway to possibly use: (get/concerts/:id/attendees)
+    // removing attendee from concert
     @DeleteMapping (value = "/{concertId}/attendees/{attendeeId}")
     public ResponseEntity removeAttendeeFromConcert(
             @PathVariable Long concertId,
             @PathVariable Long attendeeId){
         concertService.removeAttendeeFromConcert(concertId, attendeeId);
-        return new ResponseEntity(null, HttpStatus.OK);
+        return new ResponseEntity("Successfully removed " + attendeeId + " from " + concertId, HttpStatus.OK);
     }
 
 
