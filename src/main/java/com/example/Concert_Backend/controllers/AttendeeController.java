@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/attendees")
@@ -31,8 +32,12 @@ public class AttendeeController {
     // getting attendee by id
     @GetMapping(value = "/{id}")
     public ResponseEntity<Attendee> getAttendeeById(@PathVariable long id){
-        Attendee attendee = attendeeService.getAttendeeById(id);
-        return new ResponseEntity<>(attendee, HttpStatus.OK);
+        Optional<Attendee> attendee = attendeeService.getAttendeeById(id);
+        if (attendee.isPresent()){
+            return new ResponseEntity(attendee.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity("Attendee with this id does not exist", HttpStatus.NOT_FOUND);
+        }
     }
 
     // adding new attendee

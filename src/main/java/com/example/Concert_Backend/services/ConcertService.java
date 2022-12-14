@@ -45,7 +45,8 @@ public class ConcertService {
     //Adding attendee to concert
     public Concert addAttendeeToConcert (long concert_id, long attendee_id){
         Concert concert = concertRepository.findById(concert_id).get();
-        Attendee attendee = attendeeService.getAttendeeById (attendee_id);
+        Attendee attendee = attendeeRepository.findById(attendee_id).get();
+       // Attendee attendee = attendeeService.getAttendeeById (attendee_id);
         List<Attendee> attendees = concert.getAttendees();
         attendees.add(attendee);
         concert.setAttendees(attendees);

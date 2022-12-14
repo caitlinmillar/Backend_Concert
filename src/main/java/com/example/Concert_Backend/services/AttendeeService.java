@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AttendeeService {
@@ -25,8 +26,8 @@ public class AttendeeService {
         return attendeeRepository.findAll();
     }
 
-    public Attendee getAttendeeById(Long id) {
-        return attendeeRepository.findById(id).get();
+    public Optional<Attendee> getAttendeeById(Long id) {
+        return attendeeRepository.findById(id);
     }
 
     public Attendee addNewAttendee(Attendee attendee) {
