@@ -43,9 +43,10 @@ public class Concert {
         this.capacity = capacity;
         this.date = date;
         this.time = time;
+        this.ticket_price = ticket_price;
         this.attendees = new ArrayList<>();
         this.artist = artist;
-        this.ticket_price = ticket_price;
+
     }
 
     public Concert(){}

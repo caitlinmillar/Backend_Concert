@@ -77,7 +77,7 @@ public class ConcertController {
             @PathVariable Long concertId,
             @PathVariable Long attendeeId){
         concertService.removeAttendeeFromConcert(concertId, attendeeId);
-        return new ResponseEntity("Successfully removed " + attendeeId + " from " + concertId, HttpStatus.OK);
+        return new ResponseEntity("Successfully removed attendee number " + attendeeId + " from concert number " + concertId, HttpStatus.OK);
     }
 
     // gives you a list of all the concerts based on their capacity from lowest to highest
