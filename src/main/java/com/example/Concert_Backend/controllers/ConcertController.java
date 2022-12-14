@@ -19,8 +19,10 @@ import java.util.Optional;
 public class ConcertController {
     @Autowired
     ConcertService concertService;
+    @Autowired
+    private ConcertRepository concertRepository;
 
-//    Getting all concerts
+    //    Getting all concerts
     @GetMapping
     public ResponseEntity<List<Concert>> getAllConcerts (){
         List<Concert>concerts = concertService.getAllConcerts();
@@ -64,10 +66,13 @@ public class ConcertController {
 
     //Remove attendee from concert
     @DeleteMapping (value = "/remove/{id}")
-    public ResponseEntity<Long> removeAttendeeFromConcert(@PathVariable Long id, @RequestBody Concert concert){
-        concert.removeAttendee();
-        concertService.removeAttendeeFromConcert(id);
-        return new ResponseEntity<>(null, HttpStatus.OK);
+    public ResponseEntity<HttpStatus> removeAttendeeFromConcert(@PathVariable Long id){
+        try{
+            concertService.removeAttendeeFromConcert(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.OK);
+        }
     }
 
 
