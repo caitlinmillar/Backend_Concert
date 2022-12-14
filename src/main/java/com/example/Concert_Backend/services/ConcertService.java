@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ConcertService {
@@ -37,8 +38,8 @@ public class ConcertService {
     }
 
     //Getting concert by Id
-    public Concert getConcertById (Long id){
-        return concertRepository.findById(id).get();
+    public Optional<Concert> getConcertById (Long id){
+        return concertRepository.findById(id);
     }
 
     //Adding attendee to concert

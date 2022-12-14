@@ -28,11 +28,16 @@ public class ConcertController {
         List<Concert>concerts = concertService.getAllConcerts();
         return new ResponseEntity<>(concerts, HttpStatus.OK);
     }
+
     //Getting a concert by ID
     @GetMapping(value = "/{id}")
     public ResponseEntity<Concert> getConcertById (@PathVariable Long id){
-        Concert concert = concertService.getConcertById(id);
-        return new ResponseEntity<>(concert, HttpStatus.OK);
+       Optional<Concert> concert = concertService.getConcertById(id);
+        if (concert.isPresent()){
+            return new ResponseEntity(concert.get(), HttpStatus.OK);
+        }else {
+            return new ResponseEntity("Concert of this id does not exist!", HttpStatus.NOT_FOUND);
+        }
     }
 
     //Posting/adding concert
