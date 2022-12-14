@@ -1,14 +1,18 @@
 
-<div>
-<img src="./TRack 2.png" alt="logo" align="centre" width="100" height="100"/>
-</div>
-<h1 align="center">Hi 👋 we are Track2!</h1>
-<h3 align="center">A group of software-engineers-in-training. This is our first BackEnd project.</h3>
+
+
+<img src="./TRack 2.png" align="right" alt="logo" width="120" height="120"/>
+
+
+<h1 align="center">Hi 👋 we are Track2</h1>
+<h3 align="center">A group of software-engineers-in-training. This is our first BackEnd project!</h3>
 
 
 
 
 ### 🚀 Project Outline
+
+---
 
 <p> In this project we have built an API for a concert booking system. It implements Java, SpringBoot and a Postgres SQL Database. 
 
@@ -18,6 +22,8 @@ The two classes of Concert and Attendee will have a many-to-many relationship.
 
 
 ###  🌱 MVP
+
+---
 
 <p>
 For started our project by defining our MVP. We decided the most integral logic of the application would be:
@@ -46,11 +52,15 @@ Attendees can be created or removed from the Repository as well as added or remo
 
 
 ### Class Diagram and Entity Relationship Diagram
+
+---
 <div>
 <img src="./UML:ERD.png" alt ="uml and erd diagrams"/>
 </div>
 
 ## 💻 Tech Stack :
+
+---
 - Intellij, JDK 17
 - Spring Boot
 - PostgresSQL
@@ -58,6 +68,8 @@ Attendees can be created or removed from the Repository as well as added or remo
 - Postico
 
 ### Extensions
+
+---
 We were able to implement several of our ideas for extending our projects' functionality. They are as follows:
 - We added a **Data Transfer Object** class to handle bookings
 - We developed some **error handling** by adding response messages.
@@ -68,6 +80,8 @@ Similarly, if an id that doesn't exist is inputted in this way, an error message
 
 
 ## 💬 How to use the API
+
+---
 ### RESTful roots:
 **Index**
 - GET http://localhost:8080/concerts ---►
@@ -121,6 +135,7 @@ Sort concerts by ticket price (Highest to Lowest)
 
 ## 📫 How to install and run the project
 
+---
 Clone the project
 
 ```bash
@@ -146,12 +161,15 @@ Start the server
 ```
 ## Roadmap
 
+---
 - (What improvements we want to make)
 
 
 
 
 ## ⚡ Credits
+
+---
 **Caitlin Millar**: [caitlinmillar](https://github.com/caitlinmillar)
 
 **Berna Yasar**: [Byasar3](https://github.com/Byasar3)
