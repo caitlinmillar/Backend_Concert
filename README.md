@@ -1,9 +1,9 @@
 
-<div style="width:100px ; height:100px">
-
-![TRack 2.png](TRack 2.png?raw=true "Logo")
+<div style="width:100px ; height:100px" >
+[//]: # (![TRack 2.png]&#40;TRack 2.png?raw=true "Logo"&#41;)
 </div>
-<img src="./"
+
+<img src="./TRack 2.png" alt="logo" align="centre" width="100" height="100" />
 
 <h1 align="center">Hi 👋 we are Track2!</h1>
 <h3 align="center">A group of software-engineers-in-training. This is our first BackEnd project.</h3>
