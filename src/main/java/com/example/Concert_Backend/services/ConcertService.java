@@ -35,10 +35,12 @@ public class ConcertService {
     public List<Concert>getAllConcerts (){
         return concertRepository.findAll();
     }
+
     //Getting concert by Id
     public Concert getConcertById (Long id){
         return concertRepository.findById(id).get();
     }
+
     //Adding attendee to concert
     public Concert addAttendeeToConcert (long concert_id, long attendee_id){
         Concert concert = concertRepository.findById(concert_id).get();
@@ -50,12 +52,13 @@ public class ConcertService {
         return concert;
     }
 
-    //add is present with if statement
+    // (to do): add is present with if statement
+    // removing the attendee from concert
     public void removeAttendeeFromConcert (Long id){
         Attendee foundAttendee = attendeeRepository.findById(id).get();
-        for (Concert concert : foundAttendee.getConcerts()){
-            concert.removeAttendee(foundAttendee);
-            concertRepository.save(concert);
+        for (Concert foundConcert : foundAttendee.getConcerts()){
+            foundConcert.removeAttendee(foundAttendee);
+            concertRepository.save(foundConcert);
         }
     }
 

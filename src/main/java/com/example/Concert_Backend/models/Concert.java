@@ -34,7 +34,6 @@ public class Concert {
             joinColumns = @JoinColumn(name = "concert_id"),
             inverseJoinColumns = @JoinColumn(name = "attendee_id")
     )
-
     private List<Attendee> attendees;
 
     public Concert(String artist, long capacity, String date, String time){
@@ -101,6 +100,13 @@ public class Concert {
 
     public void removeAttendee(Attendee attendee){
         this.attendees.remove(attendee);
+    }
+
+    @PreRemove
+    private void removeAttendeeFromConcert (){
+        for (Attendee attendee : attendees){
+            attendee.getConcerts().remove(this);
+        }
     }
 }
 

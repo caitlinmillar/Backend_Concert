@@ -18,5 +18,9 @@ public class BookingsDTO {
         this.attendee_id = attendee_id;
     }
 
-    //message potion, String property
+//    public void removeAttendeeFromConcert(){
+//        this.attendee_id = attendee_id;
+//    }
+
+    //message portion, String property
 }
