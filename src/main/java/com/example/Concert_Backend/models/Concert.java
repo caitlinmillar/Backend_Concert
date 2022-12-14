@@ -27,6 +27,9 @@ public class Concert {
     @Column(name = "time")
     private String time;
 
+    @Column (name = "ticketPrice")
+    private double ticketPrice;
+
     @JsonIgnoreProperties({"concerts"})
     @ManyToMany
     @JoinTable(
@@ -36,12 +39,13 @@ public class Concert {
     )
     private List<Attendee> attendees;
 
-    public Concert(String artist, long capacity, String date, String time){
+    public Concert(String artist, long capacity, String date, String time, double ticketPrice){
         this.capacity = capacity;
         this.date = date;
         this.time = time;
         this.attendees = new ArrayList<>();
         this.artist = artist;
+        this.ticketPrice = ticketPrice;
     }
 
     public Concert(){}
@@ -102,5 +106,12 @@ public class Concert {
         this.attendees.remove(attendee);
     }
 
+    public double getTicketPrice() {
+        return ticketPrice;
+    }
+
+    public void setTicketPrice(double ticketPrice) {
+        this.ticketPrice = ticketPrice;
+    }
 }
 

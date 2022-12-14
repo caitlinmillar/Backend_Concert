@@ -10,9 +10,10 @@ import java.util.List;
 @Repository
 public interface ConcertRepository extends JpaRepository<Concert, Long> {
 
-    // SQL query that orders the concerts by capacity from lowest to highest
+    // SQL query that orders the concerts by capacity (LOWEST to HIGHEST)
     @Query (value = "SELECT*FROM concerts ORDER BY capacity", nativeQuery = true)
     List<Concert> findByConcertAndSortByCapacity();
 
-
+    // SQL query to sort concerts by ticket price (HIGHEST to LOWEST)
+    @Query ()
 }

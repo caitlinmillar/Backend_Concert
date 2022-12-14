@@ -32,32 +32,32 @@ public class DataLoader implements ApplicationRunner {
         attendeeRepository.save(abdullah);
 
         //Add new Concert
-        Concert tupacConcert = new Concert("Tupac", 5000, "01/01/2023","19:00");
+        Concert tupacConcert = new Concert("Tupac", 5000, "01/01/2023","19:00", 1000.00);
         tupacConcert.addAttendee(losh);
         tupacConcert.addAttendee(berna);
         tupacConcert.addAttendee(abdullah);
         concertRepository.save(tupacConcert);
 
-        Concert adeleConcert = new Concert("Adele", 2500, "01/01/2024","19:30");
+        Concert adeleConcert = new Concert("Adele", 2500, "01/01/2024","19:30", 100.50);
         adeleConcert.addAttendee(losh);
         adeleConcert.addAttendee(berna);
         concertRepository.save(adeleConcert);
 
-        Concert fleetwoodMac = new Concert("Fleetwood Mac", 3, "20/05/1950","4:00");
+        Concert fleetwoodMac = new Concert("Fleetwood Mac", 3, "20/05/1950","4:00", 50000.00);
         fleetwoodMac.addAttendee(caitlin);
         concertRepository.save(fleetwoodMac);
 
-        Concert billyJoel = new Concert("Billy Joel", 600000, "13/12/2013","13:00");
+        Concert billyJoel = new Concert("Billy Joel", 600000, "13/12/2013","13:00", 750.50);
         billyJoel.addAttendee(berna);
         concertRepository.save(billyJoel);
 
-        Concert kendrick = new Concert("Kendrick Lamar", 4000, "10/09/22","20:00");
+        Concert kendrick = new Concert("Kendrick Lamar", 4000, "10/09/22","20:00", 300.00);
         kendrick.addAttendee(berna);
         kendrick.addAttendee(losh);
         kendrick.addAttendee(abdullah);
         concertRepository.save(kendrick);
 
-        Concert fredo = new Concert("Fredo", 500000, "04/04/20","04:20");
+        Concert fredo = new Concert("Fredo", 500000, "04/04/20","04:20", 45.00);
         fredo.addAttendee(abdullah);
         fredo.addAttendee(losh);
         concertRepository.save(fredo);

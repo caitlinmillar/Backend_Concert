@@ -69,6 +69,7 @@ public class ConcertService {
         concertToUpdate.setDate(concert.getDate());
         concertToUpdate.setTime(concert.getTime());
         concertToUpdate.setCapacity(concert.getCapacity());
+        concertToUpdate.setTicketPrice(concert.getTicketPrice());
         concertRepository.save(concertToUpdate);
         return concertToUpdate;
 
