@@ -55,7 +55,8 @@ Attendees can be created or removed from the Repository as well as added or remo
 
 ---
 <div>
-<img src="./UML:ERD.png" alt ="uml and erd diagrams"/>
+<img src="./ERDnoBG.png" alt ="erd diagram"/>
+<img src="./UMLnoBG.png" alt ="uml diagram"/>
 </div>
 
 ## 💻 Tech Stack :
