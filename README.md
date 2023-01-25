@@ -84,53 +84,43 @@ Similarly, if an id that doesn't exist is inputted in this way, an error message
 
 ---
 ### RESTful roots:
-**Index**
+**Concert**
 - GET http://localhost:8080/concerts ---►
 gets all concerts
-- GET http://localhost:8080/attendees ---►
-gets all attendees
----
-**Show**
-- GET http://localhost:8080/attendees/3 ---►
-gets an attendee by id
 - GET http://localhost:8080/concerts/1 ---►
   gets a concert by id
----
-**Create**
-- POST http://localhost:8080/attendees ---►
-creating a new attendee
-- POST http://localhost:8080/concerts ---►
-creating a new concert
----
-**Update**
-- PUT http://localhost:8080/concerts/2 ---►
-updating a concert
-- PUT http://localhost:8080/attendees/5 ---►
-updating an attendee
-- PATCH http://localhost:8080/concerts/1 ---►
-adding an attendee to a concert
----
-**Delete**
-- DELETE http://localhost:8080/concerts/1/attendees/3 ---►
-removing an attendee from a concert
-- DELETE http://localhost:8080/concerts/6 ---►
-deleting a concert
-- DELETE http://localhost:8080/attendees/4 ---►
-deleting an attendee
-
-### Filters and Sort:
-**Filter**
-- GET http://localhost:8080/attendees/names ---►
-Getting a list of attendees name
-- GET http://localhost:8080/attendees/numberOfAttendees ---►
-Get number of attendees
 - GET http://localhost:8080/concerts/ticketPrices/over150 ---►
 Find concerts where the ticket price is greater than 150
-**Sort**
 - GET http://localhost:8080/concerts/capacities ---►
 Sort concerts by capacity (Lowest to Highest)
 - GET http://localhost:8080/concerts/ticketPrices ---►
 Sort concerts by ticket price (Highest to Lowest)
+- POST http://localhost:8080/concerts ---►
+creating a new concert
+- PUT http://localhost:8080/concerts/2 ---►
+updating a concert
+- PATCH http://localhost:8080/concerts/1 ---►
+adding an attendee to a concert
+- DELETE http://localhost:8080/concerts/1/attendees/3 ---►
+removing an attendee from a concert
+- DELETE http://localhost:8080/concerts/6 ---►
+deleting a concert
+---
+**Attendee**
+- GET http://localhost:8080/attendees ---►
+gets all attendees
+- GET http://localhost:8080/attendees/3 ---►
+gets an attendee by id
+- GET http://localhost:8080/attendees/names ---►
+Getting a list of attendees name
+- GET http://localhost:8080/attendees/numberOfAttendees ---►
+Get number of attendees
+- POST http://localhost:8080/attendees ---►
+creating a new attendee
+- PUT http://localhost:8080/attendees/5 ---►
+updating an attendee
+- DELETE http://localhost:8080/attendees/4 ---►
+deleting an attendee
 
 
 
