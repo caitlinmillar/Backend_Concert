@@ -74,8 +74,8 @@ Each Attendee object has an `attendee id`, `name`, `email address`, `phone numbe
 We were able to implement several of our ideas for extending our projects' functionality. They are as follows:
 - We added a **Data Transfer Object** class to handle bookings
 - We developed some **error handling** by adding response messages.
-These related to letting the user know a concert/attendee has been successfully removed.
-As well as writing an if/else statement to make sure only attendees and concerts with id's in existence could be updated/removed/added.
+These related to letting the user know a `concert`/`attendee` has been successfully removed.
+As well as writing an if/else statement to make sure only `attendees` and `concerts` with ids in existence could be updated/removed/added.
 Similarly, if an id that doesn't exist is inputted in this way, an error message will be returned 
 - We added some **derived queries** (see below, section Filter and Sort)
 
@@ -154,10 +154,10 @@ Start the server
 
 ---
 The features we would like to implement in the future are as follows:
-- Separate the property Artist *into its own class*
-- Replace the strings of 'date' and 'time' with *LocalDate and LocalTime*
-- Add parameter of age linked to Attendee
-- Logic to define the age restrictions on a concert. Then add a Boolean which takes in an Attendee's age to confirm whether they are permitted to attend the concert or not.
+- Separate the property `Artist` *into its own class*
+- Replace the strings of `'date'` and `'time'` with *`LocalDate` and `LocalTime`*
+- Add parameter of age linked to `Attendee`
+- Logic to define the age restrictions on a `concert`. Then add a Boolean which takes in an Attendee's age to confirm whether they are permitted to attend the concert or not.
 
 
 
