@@ -45,9 +45,9 @@ In accordance with the principles of a many-to-many relationships it is possible
 ### 🎹 Attendee
 
 ---
-Each Attendee object has an attendee id, name, email address, phone number and a list of concerts they will be attending.
+Each Attendee object has an `attendee id`, `name`, `email address`, `phone number` and a `list of concerts` they will be attending.
 
-Attendees can be created or removed from the Repository as well as added or removed from individual concerts.
+`Attendees` can be created or removed from the `Repository` as well as added or removed from individual `concerts`.
 </p>
 
 
