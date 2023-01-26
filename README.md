@@ -16,7 +16,7 @@
 
 <p> In this project we have built an API for a concert booking system. It implements Java, SpringBoot and a Postgres SQL Database. 
 
-The two classes of Concert and Attendee will have a many-to-many relationship.
+The two classes of `Concert` and `Attendee` will have a many-to-many relationship.
 
 </p>
 
@@ -36,11 +36,11 @@ For started our project by defining our MVP. We decided the most integral logic 
 ### 🎸 Concert
 
 ---
-Within the Concert Model we have defined the following properties: a concert id, ticket price, capacity, date, time, artist and a list of attendees.
+Within the Concert Model we have defined the following properties: a `concert id`, `ticket price`, `capacity`, `date`, `time`, `artist` and a `list of attendees`.
 
-Our Concert and Attendee classes have a many-to-many relationship and as such attendees can be removed or added to a concert.
+Our `Concert` and `Attendee` classes have a many-to-many relationship and as such `attendees` can be removed or added to a `concert`.
 
-In accordance with the principles of a many-to-many relationships it is possible for a concert to have many attendees and for an attendee to be going to many concerts.
+In accordance with the principles of a many-to-many relationships it is possible for a `concert` to have many `attendees` and for an `attendee` to be going to many `concerts`.
 
 ### 🎹 Attendee
 
